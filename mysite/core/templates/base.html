@@ -2,18 +2,22 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>{% block title %}Jiyoungdo Capstone Design{% endblock %}</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstraptheme.min.css">
 </head>
 
 <body>
-    <h1>Home Page</h1>
-    <h2>if you want to go upload service, please add  "/upload" to this url </h2>
-    <h2>로그 정보 자동 추출 서비스로 가고 싶으시다면 지금 url 에 "/upload" 를 붙여주세요 : ) </h2>
+    <h1>Main Page</h1>
+    <br/>
+    <small>메인 페이지 주소: carrie.pythonanywhere.com </small>
+    <br/>
+    <small>로그 정보 자동 추출 서비스 주소: carrie.pythonanywhere&#47;upload&#47; </small>
 
     {% block content %}
     {% endblock %}
 </body>
+
 </html>
