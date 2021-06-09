@@ -15,7 +15,7 @@ class user_Saved(models.Model):
     first_send = models.IntegerField() 
     last_recv = models.IntegerField()
     
-    result = last_recv - first_send
+    # result = last_recv - first_send
 
     def __str__(self):
-        return self.result
+        return self.first_send
