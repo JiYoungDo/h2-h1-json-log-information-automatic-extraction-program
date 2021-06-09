@@ -3,12 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}test{% endblock %}</title>
+    <title>{% block title %}Jiyoungdo Capstone Design{% endblock %}</title>
     <link rel ="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
 </head>
 
 <body>
-    <h1>Index Page</h1>
+    <h1>Home Page</h1>
+    <h2>if you want to go upload service, please add  "/upload" to this url </h2>
+    <h2>로그 정보 자동 추출 서비스로 가고 싶으시다면 지금 url 에 "/upload" 를 붙여주세요 : ) </h2>
+
     {% block content %}
     {% endblock %}
 </body>
