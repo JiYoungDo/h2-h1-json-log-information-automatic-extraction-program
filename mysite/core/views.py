@@ -6,4 +6,8 @@ class Home(TemplateView):
         template_name = 'base.html'
 
 def upload(request):
-    return render(request, 'upload.html')
+        if request.method == 'POST':
+                uploaded_file = request.FILES['document']
+                print(uploaded_file.name)
+                print(uploaded_file.size)
+        return render(request, 'upload.html')
