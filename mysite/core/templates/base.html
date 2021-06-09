@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    {% block content %}
+    {% endblock %}
     <h1>What's this Service?</h1>
     <small>It analyzes the http json file and shows you the information you want visually.</small>
     <br/>
@@ -21,8 +23,7 @@
     <p>메인 페이지 주소: carrie.pythonanywhere.com </p>
     <p>로그 정보 자동 추출 서비스 주소: carrie.pythonanywhere.com&#47;upload&#47; </p>
 
-    {% block content %}
-    {% endblock %}
+    
 </body>
 
 </html>
