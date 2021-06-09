@@ -7,14 +7,19 @@
     <title>{% block title %}Jiyoungdo Capstone Design{% endblock %}</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstraptheme.min.css">
+    <link rel="stylesheet" href="{% static 'css/textcolor.css' %}">
 </head>
 
 <body>
-    <h1>Main Page</h1>
+    <h1>What's this Service?</h1>
+    <small>It analyzes the http json file and shows you the information you want visually.</small>
     <br/>
-    <small>메인 페이지 주소: carrie.pythonanywhere.com </small>
+    <small>h2, h1 json 로그 정보 추출해주는 웹 서비스 입니다.</small>
+    
     <br/>
-    <small>로그 정보 자동 추출 서비스 주소: carrie.pythonanywhere.com&#47;upload&#47; </small>
+    <br/>
+    <p>메인 페이지 주소: carrie.pythonanywhere.com </p>
+    <p>로그 정보 자동 추출 서비스 주소: carrie.pythonanywhere.com&#47;upload&#47; </p>
 
     {% block content %}
     {% endblock %}

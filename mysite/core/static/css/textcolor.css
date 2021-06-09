@@ -1,7 +1,60 @@
-h1 a {
-    color: #006b9c;
+.page-header {
+    background-color: #000000;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
 }
 
-small a {
-    color: #222527;
+.page-header h1,
+.page-header h1 a,
+.page-header h1 a:visited,
+.page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
 }
+
+.content {
+    margin-left: 40px;
+   
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Lobster',cursive;
+    color: rgb(92, 150, 226);
+    padding: 20px 20px 20px 40px;
+    font-size: 40pt;
+}
+
+p {
+    font-family: 'Lobster',Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 20px 0px 40px;
+    font-size: 18pt;
+}
+
+small {
+    font-family: 'Lobster';
+    padding: 20px 20px 20px 40px;
+    color: rgb(27, 27, 25);
+    font-size: 14pt;
+}
+
+.date {
+    color: #828282;
+}
+
+
+
+
+.top-menu,
+.top-menu:hover,
+.top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+
