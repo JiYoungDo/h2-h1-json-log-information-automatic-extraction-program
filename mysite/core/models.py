@@ -11,8 +11,8 @@ class ImamgeUpload(models.Model):
         return self.title
 
 # 해당 정보를 저장하려고 한다면. 
-class user_Saved(modls.Model):
-    first_send = models.IntegerField()
+class user_Saved(models.Model):
+    first_send = models.IntegerField() 
     last_recv = models.IntegerField()
     
     result = last_recv - first_send
