@@ -1,6 +1,4 @@
-# Capstone-Design
-
-h2, h1 json 로그 정보 자동 추출 프로그램입니다.
+# h2, h1 json 로그 정보 자동 추출 프로그램
 
 It analyzes the http json file and shows you the information you want visually.
 
