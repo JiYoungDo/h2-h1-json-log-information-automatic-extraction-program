@@ -7,11 +7,16 @@ class Home(TemplateView):
         template_name = 'base.html'
 
 def upload(request):
+        context = {}
         if request.method == 'POST':
                 uploaded_file = request.FILES['document']
                 fs = FileSystemStorage()
-                fs.save(uploaded_file.name, uploaded_file)
+                
+                name = fs.save(uploaded_file.name, uploaded_file)
+                # url = fs.url(name)
+                context['url'] = fs.url(name)
                 
                 print(uploaded_file.name)
                 print(uploaded_file.size )
-        return render(request, 'upload.html') 
+                #print(url)
+        return render(request, 'upload.html', context) 
