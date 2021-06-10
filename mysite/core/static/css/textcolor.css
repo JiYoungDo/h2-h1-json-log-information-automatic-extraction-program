@@ -13,6 +13,10 @@
     text-decoration: none;
 }
 
+body{
+    background-color: #f2e9e1;    
+    color: #1c140d;
+}
 .content {
     margin-left: 40px;
    
@@ -23,30 +27,40 @@ h2,
 h3,
 h4 {
     font-family: 'Lobster',cursive;
-    color: rgb(92, 150, 226);
+    color: #eb9f9f;
     padding: 20px 20px 20px 40px;
     font-size: 40pt;
 }
 
 p {
     font-family: 'Lobster',Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    padding: 10px 20px 0px 40px;
+    margin-left: 40px;
     font-size: 18pt;
 }
 
-form,
-input,
-button {
+
+form,input
+{
     font-family: 'Lobster';
     margin-left: 20px;
-    color: rgb(0, 0, 0);
+    color: #1c140d;
     font-size: 12pt;
+}
+button{
+    font-family: 'Lobster';
+    margin-left: 20px;
+    background-color: #eb9f9f;
+    color: #ffffff;
+    border: #ffffff;
+    border-radius: 5%;
+    padding: 5px;
+    font-size: 16pt;
 }
 
 small {
     font-family: 'Lobster';
     padding: 20px 20px 20px 40px;
-    color: rgb(27, 27, 25);
+    color: #1c140d;
     font-size: 14pt;
 }
 
