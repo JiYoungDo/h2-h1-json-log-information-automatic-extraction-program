@@ -89,6 +89,11 @@ td,tbody,thead{
     padding: 5px;
 }
 
+a
+{
+    color:#da6565;
+    font-size: 14pt;
+}
 
 .top-menu,
 .top-menu:hover,
