@@ -3,7 +3,11 @@
 {% block content %} 
     <h2>🔎 View Analyzed Information</h2>
 
-    <table class="table">
+<p>
+    <a href="http://carrie.pythonanywhere.com/files/upload/">[ Go to File Upload ]</a>
+</p>
+
+    <table class="table mb-0">
         <thead>
             <tr>
                 <th>FileGroup</th>
@@ -16,7 +20,9 @@
             <tr>
                 <td>{{ file.filegroup }}</td>
                 <td>{{ file.filenum }}</td>
-                <td>{{ file.json}}</td>
+                <td>
+                    <a href="{{ file.json.url }}">Download json</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
