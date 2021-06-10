@@ -12,6 +12,8 @@
             <tr>
                 <th>FileGroup</th>
                 <th>FileNum</th>
+                <th>ProtoCol</th>
+                <th>HostName</th>
                 <th>Json Download</th>
             </tr>
         </thead>
@@ -20,8 +22,10 @@
             <tr>
                 <td>{{ file.filegroup }}</td>
                 <td>{{ file.filenum }}</td>
+                <td>{{ file.protocoll }}</td>
+                <td>{{ file.hostname }}</td>
                 <td>
-                    <a href="{{ file.json.url }}">Download json</a>
+                    <a href="{{ file.json.proto_col }}">Download json</a>
                 </td>
             </tr>
             {% endfor %}
