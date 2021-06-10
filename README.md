@@ -14,5 +14,7 @@ It analyzes the http json file and shows you the information you want visually.
 
 
 기능 설명
-- 
-![1](https://user-images.githubusercontent.com/48639426/121510947-20ecfb80-ca23-11eb-93c3-881cba05c682.jpeg)
+-
+![1](https://user-images.githubusercontent.com/48639426/121511177-54c82100-ca23-11eb-861a-64746f0ee38b.jpeg)
+
+
