@@ -11,6 +11,6 @@ It analyzes the http json file and shows you the information you want visually.
 
 <br/>
 <br/>
-https://user-images.githubusercontent.com/48639426/121660038-d8dedf00-cadd-11eb-9960-e2c101c0bbd0.mov
+
 
 
