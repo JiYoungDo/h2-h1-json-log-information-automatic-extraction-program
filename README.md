@@ -11,6 +11,6 @@ It analyzes the http json file and shows you the information you want visually.
 
 <br/>
 <br/>
-
+![화면-기록-2021-06-11-오후-5 52 29](https://user-images.githubusercontent.com/48639426/121660889-9bc71c80-cade-11eb-93f4-e4a01938d663.gif)
 
 
