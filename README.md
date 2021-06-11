@@ -7,6 +7,6 @@ It analyzes the http json file and shows you the information you want visually.
 [carrie.pythonanywhere.com](http://carrie.pythonanywhere.com/)
 <br/>
 서비스에서 사용하는 json 파일은 아래 링크를 통해 기록 할 수 있습니다.
-[chrome://net-export/](chrome://net-export/)
+[chrome://net-export/](http://chrome://net-export/)
 <br/>
 
