@@ -2,9 +2,12 @@
 
 {% block content %} 
     <h2>🔎 View Analyzed Information</h2>
-
 <p>
     <a href="http://carrie.pythonanywhere.com/files/upload/">[ Go to File Upload ]</a>
+    <br/>
+    <a href="charts/">[ Go to File Chart ]</a>
+    <br/>
+
 </p>
 
     <table class="table mb-0">
@@ -15,6 +18,8 @@
                 <th>ProtoCol</th>
                 <th>HostName</th>
                 <th>Json Download</th>
+                <th>Delete</th>
+                <th>group graph</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +30,13 @@
                 <td>{{ file.protocoll }}</td>
                 <td>{{ file.hostname }}</td>
                 <td>
-                    <a href="{{ file.json.proto_col }}">Download json</a>
+                    <a href="{{ file.json.url }}">Download json</a>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'delete_file' file.pk %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
                 </td>
             </tr>
             {% endfor %}
