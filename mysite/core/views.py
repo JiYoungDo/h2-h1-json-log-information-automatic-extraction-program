@@ -1,7 +1,7 @@
 from typing import List
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView,ListView
-from django.core.files.storage import FileSystemStorage
+from django.core.files.storage import FileSystemStorage,default_storage
 from django.views.generic.base import View
 
 from .forms import FileForm
@@ -38,20 +38,9 @@ def chart(request, group_name, protocol_name, host_name, datas_array):
 
     # The `chartData` dict contains key-value pairs data
     chartData = OrderedDict()
-    how_many_datas = datas_array.size()
+    how_many_datas = len(datas_array)
     for i in range(how_many_datas):
             chartData[str(i+1)] = datas_array[i]
-    
-    
-    '''chartData["1"] = 290
-    chartData["2"] = 260
-    chartData["3"] = 180
-    chartData["4"] = 140
-    chartData["5"] = 115
-    chartData["6"] = 100
-    chartData["7"] = 30
-    chartData["8"] = 30'''
-
 
     dataSource["chart"] = chartConfig
     dataSource["data"] = []
@@ -169,68 +158,20 @@ def show_chart(request):
         
         files = File.objects.all()
 
-        #file = File.objects.get(pk=pk)
-        #group_name = file.get_file_group()
         group_name = 'h2_img_10'
-        # group_name_list 길이 만큼 반복문을 돌면서 해당 그룹에 해당하는 파일의 datas 값 가져오기 
-        # > chart 로 넘겨 줘야 한다.
-        
+
         pro_name =''                
         host_name = ''
         datas_array = []
         
         for file in files:
                 if file.get_file_group() == group_name :
-                        datas_array.append(get_data(file))
+                        datas_array.append(file.get_data())
                         pro_name = file.get_protocol_name()
                         host_name = file.get_host_name()
         
         chart(request,group_name,pro_name,host_name,datas_array)
 
-
-def get_data(file):
-        user_input_host = file.hostname
-        user_host_id = 0 # temp 값
-        result_send = 0
-        result_recv = 0
-        result_diff = 0
-
-        '''파일에서 해당 url 에 대한 '''
-        
-        with open(file.json.url,'r') as f:
-            json_data = json.load(f)
-            
-        # 원하는 호스트에 대해서 source_id 구하기
-        for data in json_data['polledData']['spdySessionInfo']:
-            if(user_input_host in data['host_port_pair']):
-                user_host_id = data['source_id']
-            
-                
-        # 205 == HTTP2_SESSION_RECV_DATA, 188 == HTTP2_SESSION_SEND_HEADERS
-        for data in json_data['events']:
-            try:
-                temp_param = data['params']
-                temp_source = data['source']
-                temp_type = data['type']
-                temp_time = data['time']
-                
-                if(temp_source['id'] == user_host_id):
-                    if(temp_type == 205):
-                        if (temp_param['fin'] == True):
-                            start = int(temp_source['start_time'])
-                            last = int(temp_time)
-                            diff = last - start
-                            
-                            result_send = start
-                            result_recv = last
-                            result_diff = diff
-        
-            except:
-                pass
-
-        print("first_send : "+ str(result_send))
-        print("last recv : " + str(result_recv))
-        return(result_diff)
 
 class FileListView(ListView):
         # generic 하게 코드 써보기

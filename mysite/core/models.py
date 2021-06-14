@@ -1,5 +1,12 @@
+
 from django.db import models
 import json
+import os
+from django.core.files.storage import default_storage
+from django.conf import settings
+# from ..mysite import settings
+from django.core.serializers.json import DjangoJSONEncoder
+from django.core import serializers
 
 # Create your models here.
 
@@ -31,17 +38,29 @@ class File(models.Model):
     def get_host_name(self):
          return '{}'.format(self.hostname)  
 
-    '''
     def get_data(self):
+
+        #JSONSerializer = serializers.get_serializer("json")
+        #json_serialaizer = JSONSerializer()
+
+
         user_input_host = self.hostname
         user_host_id = 0 # temp 값
         result_send = 0
         result_recv = 0
         result_diff = 0
 
-        파일에서 해당 url 에 대한 
-        with open(+self.json.url,'r') as f:
+        '''파일에서 해당 url 에 대한 '''
+        # f = open(os.path.join(self.json.url)).read() 
+        # json_data = json.load(f,cls=DjangoJSONEncoder)
+        # os.path.join(os.path.dirname(os.path.dirname(__file__)),'media/documents/GDRAT.xls')
+        abs_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), self.json.url)
+        # base_dir = settings.MEDIA_ROOT
+        file_path = os.path.join(abs_path, str(self.json.url))
+        with open(file_path,'r') as f:
             json_data = json.load(f)
+            # json_serialaizer.serialize(json_data)
+           
             
         # 원하는 호스트에 대해서 source_id 구하기
         for data in json_data['polledData']['spdySessionInfo']:
@@ -74,7 +93,6 @@ class File(models.Model):
         print("first_send : "+ str(result_send))
         print("last recv : " + str(result_recv))
         return(result_diff)
-    '''
 
 
 
