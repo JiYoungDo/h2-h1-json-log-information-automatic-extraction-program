@@ -103,7 +103,8 @@ a
 }
 
 img,
-image{
+image,
+div{
     margin-left: 40px;
 }
 

@@ -170,7 +170,7 @@ def show_chart(request):
                         pro_name = file.get_protocol_name()
                         host_name = file.get_host_name()
         
-        chart(request,group_name,pro_name,host_name,datas_array)
+        return chart(request,group_name,pro_name,host_name,datas_array)
 
 
 class FileListView(ListView):

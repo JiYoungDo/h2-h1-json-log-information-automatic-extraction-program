@@ -56,7 +56,10 @@ class File(models.Model):
         # os.path.join(os.path.dirname(os.path.dirname(__file__)),'media/documents/GDRAT.xls')
         abs_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), self.json.url)
         # base_dir = settings.MEDIA_ROOT
-        file_path = os.path.join(abs_path, str(self.json.url))
+
+        # file_path = os.path.join(abs_path, str(self.json.url))
+        file_path = os.getcwd() + self.json.url
+
         with open(file_path,'r') as f:
             json_data = json.load(f)
             # json_serialaizer.serialize(json_data)
