@@ -30,7 +30,7 @@ def chart(request, group_name, protocol_name, host_name, datas_array):
     # The `chartConfig` dict contains key-value pairs data for chart attribute
     chartConfig = OrderedDict()
     chartConfig["caption"] = group_name
-    chartConfig["subCaption"] = protocol_name + host_name
+    chartConfig["subCaption"] = host_name
     chartConfig["xAxisName"] = "nums"
     chartConfig["yAxisName"] = "ms"
     chartConfig["numberSuffix"] = "ms"
@@ -60,7 +60,7 @@ def chart(request, group_name, protocol_name, host_name, datas_array):
     # Create an object for the column 2D chart using the FusionCharts class constructor
     # The chart data is passed to the `dataSource` parameter.
     column2D = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json", dataSource)
-    return  render(request, 'chart.html', {'output' : column2D.render(), 'chartTitle': 'Simple Chart Using Array'})
+    return  render(request, 'chart.html', {'output' : column2D.render(), 'chartTitle': 'Group : '+ str(group_name)})
 
 def chart_template(request):
 
@@ -157,8 +157,6 @@ def delete_file(request,pk):
 def show_chart(request,filegroup,pk):
         
         files = File.objects.all()
-        # file = File.objects.get(pk=pk)
-#        group_name = str(file.get_file_group())
         group_name = str(filegroup)
 
         pro_name =''                

@@ -38,14 +38,15 @@ class File(models.Model):
          return '{}'.format(self.hostname)  
 
     def get_data(self):
-        user_input_host = self.hostname
+        user_input_host = str(self.hostname)
+        # ✓ 잘나옴 - print(user_input_host)
         user_host_id = 0 # temp 값
         result_send = 0
         result_recv = 0
         result_diff = 0
 
         '''파일에서 해당 url 에 대한 '''
-        # 파이썬 애니웨어 글로벌 서비스 일시
+        # ✭ 파이썬 애니웨어 글로벌 서비스 일시
         file_path = os.getcwd() +'/source/Capstone-Design/mysite' +self.json.url
         
         # 로컬 테스트 서버 일시
@@ -55,11 +56,13 @@ class File(models.Model):
             json_data = json.load(f)
        
         # 원하는 호스트에 대해서 source_id 구하기
-        for data in json_data['polledData']['spdySessionInfo']:
-            
-            if(user_input_host in data['host_port_pair']):
+        for data in json_data['polledData']['spdySessionInfo']: 
+            # ✓ 이구간 지남.
+            user_want = 'https://www.'+ str(data['host_port_pair'])
+            if(user_input_host in user_want):
+                # ✓ 이 구간을 지남!!!! 
                 user_host_id = data['source_id']
-                print("user_host_id"+str(user_host_id))
+                print("user_host_id : "+str(user_host_id))
             
               
         # 205 == HTTP2_SESSION_RECV_DATA, 188 == HTTP2_SESSION_SEND_HEADERS
