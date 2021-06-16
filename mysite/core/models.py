@@ -4,7 +4,6 @@ import json
 import os
 from django.core.files.storage import default_storage
 from django.conf import settings
-# from ..mysite import settings
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 
@@ -39,11 +38,6 @@ class File(models.Model):
          return '{}'.format(self.hostname)  
 
     def get_data(self):
-
-        #JSONSerializer = serializers.get_serializer("json")
-        #json_serialaizer = JSONSerializer()
-
-
         user_input_host = self.hostname
         user_host_id = 0 # temp 값
         result_send = 0
@@ -51,26 +45,23 @@ class File(models.Model):
         result_diff = 0
 
         '''파일에서 해당 url 에 대한 '''
-        # f = open(os.path.join(self.json.url)).read() 
-        # json_data = json.load(f,cls=DjangoJSONEncoder)
-        # os.path.join(os.path.dirname(os.path.dirname(__file__)),'media/documents/GDRAT.xls')
-        abs_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), self.json.url)
-        # base_dir = settings.MEDIA_ROOT
-
-        # file_path = os.path.join(abs_path, str(self.json.url))
+        # 파이썬 애니웨어 글로벌 서비스 일시
         file_path = os.getcwd() +'/source/Capstone-Design/mysite' +self.json.url
+        
+        # 로컬 테스트 서버 일시
+        # file_path = os.getcwd()+self.json.url
 
         with open(file_path,'r') as f:
             json_data = json.load(f)
-            # json_serialaizer.serialize(json_data)
-           
-            
+       
         # 원하는 호스트에 대해서 source_id 구하기
         for data in json_data['polledData']['spdySessionInfo']:
+            
             if(user_input_host in data['host_port_pair']):
                 user_host_id = data['source_id']
+                print("user_host_id"+str(user_host_id))
             
-                
+              
         # 205 == HTTP2_SESSION_RECV_DATA, 188 == HTTP2_SESSION_SEND_HEADERS
         for data in json_data['events']:
             try:

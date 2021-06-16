@@ -154,11 +154,12 @@ def delete_file(request,pk):
         return redirect('file_list')
 
 
-def show_chart(request):
+def show_chart(request,filegroup,pk):
         
         files = File.objects.all()
-
-        group_name = 'h2_img_10'
+        # file = File.objects.get(pk=pk)
+#        group_name = str(file.get_file_group())
+        group_name = str(filegroup)
 
         pro_name =''                
         host_name = ''
@@ -167,6 +168,7 @@ def show_chart(request):
         for file in files:
                 if file.get_file_group() == group_name :
                         datas_array.append(file.get_data())
+                        print(file.get_data())
                         pro_name = file.get_protocol_name()
                         host_name = file.get_host_name()
         

@@ -5,7 +5,6 @@
 <p>
     <a href="http://carrie.pythonanywhere.com/files/upload/">[ Go to File Upload ]</a>
     <br/>
-    <a href="charts/">[ Go to File Chart ]</a>
     <br/>
 
 </p>
@@ -37,6 +36,9 @@
                         {% csrf_token %}
                         <button type="submit">Delete</button>
                     </form>
+                </td>
+                <td>
+                    <a href="{% url 'show_chart' file.pk file.filegroup %}">Chart</a>
                 </td>
             </tr>
             {% endfor %}
