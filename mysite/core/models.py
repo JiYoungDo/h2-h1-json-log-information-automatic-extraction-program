@@ -58,7 +58,7 @@ class File(models.Model):
         # base_dir = settings.MEDIA_ROOT
 
         # file_path = os.path.join(abs_path, str(self.json.url))
-        file_path = os.getcwd() +'source/Capstone-Design/mysite/' +self.json.url
+        file_path = os.getcwd() +'/source/Capstone-Design/mysite' +self.json.url
 
         with open(file_path,'r') as f:
             json_data = json.load(f)
