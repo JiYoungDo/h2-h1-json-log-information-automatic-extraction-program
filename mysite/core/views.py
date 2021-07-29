@@ -20,58 +20,7 @@ from collections import OrderedDict
 from .fusioncharts import FusionCharts
 
 
-
-# Loading Data from a Ordered Dictionary
-# Example to create a column 2D chart with the chart data passed as Dictionary format.
-# The `chart` method is defined to load chart data from Dictionary.
-
-def chart_template(request):
-
-    # Chart data is passed to the `dataSource` parameter, as dictionary in the form of key-value pairs.
-    dataSource = OrderedDict()
-
-    # The `chartConfig` dict contains key-value pairs data for chart attribute
-    chartConfig = OrderedDict()
-    chartConfig["caption"] = "Countries With Most Oil Reserves [2017-18]"
-    chartConfig["subCaption"] = "In MMbbl = One Million barrels"
-    chartConfig["xAxisName"] = "Country"
-    chartConfig["yAxisName"] = "Reserves (MMbbl)"
-    chartConfig["numberSuffix"] = "K"
-    chartConfig["theme"] = "fusion"
-
-    # The `chartData` dict contains key-value pairs data
-    chartData = OrderedDict()
-    chartData["Venezuela"] = 290
-    chartData["Saudi"] = 260
-    chartData["Canada"] = 180
-    chartData["Iran"] = 140
-    chartData["Russia"] = 115
-    chartData["UAE"] = 100
-    chartData["US"] = 30
-    chartData["China"] = 30
-
-
-    dataSource["chart"] = chartConfig
-    dataSource["data"] = []
-
-    # Convert the data in the `chartData` array into a format that can be consumed by FusionCharts.
-    # The data for the chart should be in an array wherein each element of the array is a JSON object
-    # having the `label` and `value` as keys.
-
-    # Iterate through the data in `chartData` and insert in to the `dataSource['data']` list.
-    for key, value in chartData.items():
-        data = {}
-        data["label"] = key
-        data["value"] = value
-        dataSource["data"].append(data)
-
-
-    # Create an object for the column 2D chart using the FusionCharts class constructor
-    # The chart data is passed to the `dataSource` parameter.
-    column2D = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json", dataSource)
-
-    return  render(request, 'chart.html', {'output' : column2D.render(), 'chartTitle': 'Simple Chart Using Array'})
-
+# used one when single chart
 def chart(request, group_name, protocol_name, host_name, datas_array):
 
     # Chart data is passed to the `dataSource` parameter, as dictionary in the form of key-value pairs.
@@ -113,7 +62,7 @@ def chart(request, group_name, protocol_name, host_name, datas_array):
     column2D = FusionCharts("column2d", "ex1" , "600", "400", "chart-1", "json", dataSource)
     return  render(request, 'chart.html', {'output' : column2D.render(), 'chartTitle': 'Group : '+ str(group_name)})
 
-# single
+# single chart template
 def chart_template(request):
 
     # Chart data is passed to the `dataSource` parameter, as dictionary in the form of key-value pairs.
@@ -162,104 +111,45 @@ def chart_template(request):
     return  render(request, 'chart.html', {'output' : column2D.render(), 'chartTitle': 'Simple Chart Using Array'})
 
 
-# multi_chart_template
-def multi_chart(request):
-   chartObj = FusionCharts( 'mscolumn2d', 'ex1', '600', '400', 'chart-1', 'json', """{
-  "chart": {
-    "caption": "App Publishing Trend",
-    "subcaption": "2012-2016",
-    "xaxisname": "Years",
-    "yaxisname": "Total number of apps in store",
-    "formatnumberscale": "1",
-    "plottooltext": "<b>$dataValue</b> apps were available on <b>$seriesName</b> in $label",
-    "theme": "fusion",
-    "drawcrossline": "1"
-  },
-  "categories": [
-    {
-      "category": [
-        {
-          "label": "2012"
-        },
-        {
-          "label": "2013"
-        },
-        {
-          "label": "2014"
-        },
-        {
-          "label": "2015"
-        },
-        {
-          "label": "2016"
-        }
-      ]
-    }
-  ],
-  "dataset": [
-    {
-      "seriesname": "iOS App Store",
-      "data": [
-        {
-          "value": "125000"
-        },
-        {
-          "value": "300000"
-        },
-        {
-          "value": "480000"
-        },
-        {
-          "value": "800000"
-        },
-        {
-          "value": "1100000"
-        }
-      ]
-    },
-    {
-      "seriesname": "Google Play Store",
-      "data": [
-        {
-          "value": "70000"
-        },
-        {
-          "value": "150000"
-        },
-        {
-          "value": "350000"
-        },
-        {
-          "value": "600000"
-        },
-        {
-          "value": "1400000"
-        }
-      ]
-    },
-    {
-      "seriesname": "Amazon AppStore",
-      "data": [
-        {
-          "value": "10000"
-        },
-        {
-          "value": "100000"
-        },
-        {
-          "value": "300000"
-        },
-        {
-          "value": "600000"
-        },
-        {
-          "value": "900000"
-        }
-      ]
-    }
-  ]
-}""")
-   return render(request, 'multi_chart.html', {'output': chartObj.render()})
+# multi_chart(request,group_name,host_name, datas_array_h1, datas_array_h2)
+def multi_chart(request,group_name,host_name, datas_array_h1, datas_array_h2):
+        
+        len_h1 = len(datas_array_h1)
+        len_h2 = len(datas_array_h2)
+        
+        len_min = 0
+
+        if (len_h1 > len_h2) : 
+                len_min = len_h2 
+        else: len_min = len_h1
+
+
+        categories_list = []
+        
+        h1_value = []
+        h2_value = []
+        
+        for i in range(len_min):
+                categories_list.append( {'label': str(i+1)} )
+                h1_value.append( {'value' : str(datas_array_h1[i])} )
+                h2_value.append( {'value' : str(datas_array_h2[i]*(-1))} )
+
+
+        temp_chart = {
+                'chart': {'caption': group_name, 'subcaption': host_name, 'xaxisname': 'nums', 'yaxisname': 'ms', 'formatnumberscale': '0', 'plottooltext': '<b>$dataValue</b> apps were available on <b>$seriesName</b> in $label', 'theme': 'fusion', 'drawcrossline': '0'}, 
+                
+                'categories': [{'category': categories_list}], 
+                
+                'dataset': [
+                        {'seriesname': 'h1', 'data': h1_value}, 
+
+                        {'seriesname': 'h2', 'data': h2_value}, 
+                        ]}
+        
+        chartObj = FusionCharts( 'mscolumn2d', 'ex1', '600', '400', 'chart-1', 'json', json.dumps(temp_chart))  
+        return render(request, 'multi_chart.html', {'output': chartObj.render()})
+
+
 
 class Home(TemplateView):
         template_name = 'base.html'
@@ -305,6 +195,7 @@ def delete_file(request,pk):
         return redirect('file_list')
 
 
+# single - showchart
 def show_chart(request,filegroup,pk):
         
         files = File.objects.all()
@@ -323,6 +214,39 @@ def show_chart(request,filegroup,pk):
         
         return chart(request,group_name,pro_name,host_name,datas_array)
 
+# Multi - showchart
+def show_multi_chart(request,filegroup,pk):
+        
+        files = File.objects.all()
+        group_name = str(filegroup)
+        
+        h2_str = ["h2", "H2","http2","HTTP2","http2.0","HTTP2.0"]
+        h1_str = ["h1", "H1","http1","HTTP1","http1.1","HTTP1.1"]
+
+        h2_host_name=""
+        h1_host_name=""
+
+        datas_array_h1 = []
+        datas_array_h2 = []
+        
+        for file in files:
+                if file.get_file_group() == group_name :
+                        if(file.get_protocol_name() in h2_str):
+                                datas_array_h2.append(file.get_data())
+                                print("h2" + str(file.get_data()))
+                                h2_host_name =  str(file.get_host_name())
+                                # h2_protocol_name = file.get_protocol_name()
+                                
+                        elif(file.get_protocol_name() in h1_str):
+                                datas_array_h1.append(file.get_data())
+                                print("h1" + str(file.get_data()))
+                                h1_host_name =  str(file.get_host_name())
+                                # h1_protocol_name = file.get_protocol_name()
+        
+        # host 이름 종합하여 보여줄 수 있도록
+        host_name = "h2 : " + (h2_host_name) + " & h1 : " + (h1_host_name) 
+
+        return multi_chart(request,group_name,host_name, datas_array_h1, datas_array_h2)
 
 class FileListView(ListView):
         # generic 하게 코드 써보기

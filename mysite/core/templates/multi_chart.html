@@ -11,11 +11,16 @@
       type="text/javascript"
       src="{% static 'fusioncharts/themes/fusioncharts.theme.fint.js' %}"
     ></script>
+    <link rel="stylesheet" href="{% static 'css/textcolor.css' %}">
   </head>
   <body>
     <!-- FusionCharts will render here-->
     <div id="chart-1"></div>
     <!-- dumping JavaScript code here -->
     {{ output|safe }}
+    <br/>
+	<br/>
+	<br/>
+	<a href="/">Back</a>
   </body>
 </html>

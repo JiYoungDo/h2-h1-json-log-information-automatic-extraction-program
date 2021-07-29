@@ -38,6 +38,7 @@ class File(models.Model):
          return '{}'.format(self.hostname)  
 
     def get_data(self):
+        
         user_input_host = str(self.hostname)
         # ✓ 잘나옴 - print(user_input_host)
         user_host_id = 0 # temp 값
@@ -52,44 +53,66 @@ class File(models.Model):
         # 로컬 테스트 서버 일시
         # file_path = os.getcwd()+self.json.url
 
-        with open(file_path,'r') as f:
-            json_data = json.load(f)
-       
-        # 원하는 호스트에 대해서 source_id 구하기
-        for data in json_data['polledData']['spdySessionInfo']: 
-            # ✓ 이구간 지남.
-            user_want = 'https://www.'+ str(data['host_port_pair'])
-            if(user_input_host in user_want):
-                # ✓ 이 구간을 지남!!!! 
-                user_host_id = data['source_id']
-                print("user_host_id : "+str(user_host_id))
-            
-              
-        # 205 == HTTP2_SESSION_RECV_DATA, 188 == HTTP2_SESSION_SEND_HEADERS
-        for data in json_data['events']:
-            try:
-                temp_param = data['params']
-                temp_source = data['source']
-                temp_type = data['type']
-                temp_time = data['time']
-                
-                if(temp_source['id'] == user_host_id):
-                    if(temp_type == 205):
-                        if (temp_param['fin'] == True):
-                            start = int(temp_source['start_time'])
-                            last = int(temp_time)
-                            diff = last - start
-                            
-                            result_send = start
-                            result_recv = last
-                            result_diff = diff
+        if(self.hostname == "h2" or self.hostname == "H2" or self.hostname == "HTTP2" or self.hostname == "http2"):
+            with open(file_path,'r') as f:
+                json_data = json.load(f)
         
-            except:
-                pass
+            # 원하는 호스트에 대해서 source_id 구하기
+            for data in json_data['polledData']['spdySessionInfo']: 
+                # ✓ 이구간 지남.
+                user_want = 'https://www.'+ str(data['host_port_pair'])
+                if(user_input_host in user_want):
+                    # ✓ 이 구간을 지남!!!! 
+                    user_host_id = data['source_id']
+                    print("user_host_id : "+str(user_host_id))
+                
+                
+            # 205 == HTTP2_SESSION_RECV_DATA, 188 == HTTP2_SESSION_SEND_HEADERS
+            for data in json_data['events']:
+                try:
+                    temp_param = data['params']
+                    temp_source = data['source']
+                    temp_type = data['type']
+                    temp_time = data['time']
+                    
+                    if(temp_source['id'] == user_host_id):
+                        if(temp_type == 205):
+                            if (temp_param['fin'] == True):
+                                start = int(temp_source['start_time'])
+                                last = int(temp_time)
+                                diff = last - start
+                                
+                                result_send = start
+                                result_recv = last
+                                result_diff = diff
+            
+                except:
+                    pass
 
-        print("first_send : "+ str(result_send))
-        print("last recv : " + str(result_recv))
-        return(result_diff)
+            print("first_send : "+ str(result_send))
+            print("last recv : " + str(result_recv))
+            return(result_diff)
+
+        else:
+            send = 0
+            recv = 0
+
+            with open(file_path,'r') as f:
+                json_data = json.load(f)
+
+            for data in json_data['events']:    
+                try:
+                    if(user_input_host in data['params']['url']):
+                        try:
+                            if(data['source']['type'] == 1 and send == 0):
+                                send = data["time"]
+                            if(data['source']['type'] == 1 and ("favicon" in data['params']['url'])):
+                                recv =  data["time"]
+                        except:
+                            pass
+                except:
+                    pass
+            return(int(recv) - int(send))
 
 
 
