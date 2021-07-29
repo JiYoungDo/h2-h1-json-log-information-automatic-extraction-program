@@ -53,7 +53,7 @@ class File(models.Model):
         # 로컬 테스트 서버 일시
         # file_path = os.getcwd()+self.json.url
 
-        if(self.hostname == "h2" or self.hostname == "H2" or self.hostname == "HTTP2" or self.hostname == "http2"):
+        if(self.protocoll == "h2" or self.protocoll == "H2" or self.protocoll == "HTTP2" or self.protocoll == "http2"):
             with open(file_path,'r') as f:
                 json_data = json.load(f)
         
