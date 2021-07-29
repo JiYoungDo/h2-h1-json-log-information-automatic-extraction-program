@@ -17,4 +17,7 @@ urlpatterns = [
     path('files/charts/<int:pk>/<filegroup>/',views.show_chart, name='show_chart'),
     
     path('class/files/',views.FileListView.as_view(), name='class_file_list'),
+
+    # multichart 
+    path('files/charts/', views.multi_chart, name='show_multi_chart'),
 ] 
