@@ -32,7 +32,7 @@ http://carrie.pythonanywhere.com/
 ► 성능 평가 엑셀 시트
 https://docs.google.com/spreadsheets/d/1ifBqptXL09vX0zMQe1AGBAEvsHZwrHhqJvATiESnq1g/edit?usp=sharing 
 
-** ► 서비스에서 사용하는 json 파일은 아래 링크를 통해 기록 할 수 있습니다. **
+### ► 서비스에서 사용하는 json 파일은 아래 링크를 통해 기록 할 수 있습니다. 
 [chrome://net-export/](chrome://net-export/)
 
 
