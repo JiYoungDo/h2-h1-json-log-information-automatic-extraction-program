@@ -131,8 +131,8 @@ def multi_chart(request,group_name,host_name, datas_array_h1, datas_array_h2):
         
         for i in range(len_min):
                 categories_list.append( {'label': str(i+1)} )
-                h1_value.append( {'value' : str(datas_array_h1[i]*(-1))} )
-                h2_value.append( {'value' : str(datas_array_h2[i]*(-1))} )
+                h1_value.append( {'value' : str(datas_array_h1[i])} )
+                h2_value.append( {'value' : str(datas_array_h2[i])} )
 
 
         temp_chart = {
