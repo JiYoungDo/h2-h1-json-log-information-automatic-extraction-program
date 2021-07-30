@@ -75,7 +75,7 @@ h2 에 대해서 오픈 소스 프로그램에서 json 파일을 읽고 원하�
 <img width="633" alt="스크린샷 2021-06-29 오후 1 28 38" src="https://user-images.githubusercontent.com/48639426/123737466-f2559880-d8dd-11eb-9644-84886ed276c0.png">
 <br/>
 추가 디벨롭 부분<br/>
-<img width="903" alt="스크린샷 2021-07-30 오후 7 04 13" src="https://user-images.githubusercontent.com/48639426/127637881-774f42b6-3eb7-417b-98bb-7b4d58cec190.png">
+<img width="633" alt="스크린샷 2021-07-30 오후 7 04 13" src="https://user-images.githubusercontent.com/48639426/127637881-774f42b6-3eb7-417b-98bb-7b4d58cec190.png">
 
 ## **오픈소스 프로그램 영상**
 <br/>
@@ -83,6 +83,6 @@ h2 에 대해서 오픈 소스 프로그램에서 json 파일을 읽고 원하�
 
 ## **성능 평가 결과**
 <br/>
-<img width="1083" alt="스크린샷 2021-06-29 오후 1 34 32" src="https://user-images.githubusercontent.com/48639426/123737899-c4bd1f00-d8de-11eb-9486-4bf8f1ae4322.png">
+<img width="633" alt="스크린샷 2021-06-29 오후 1 34 32" src="https://user-images.githubusercontent.com/48639426/123737899-c4bd1f00-d8de-11eb-9486-4bf8f1ae4322.png">
 
 
