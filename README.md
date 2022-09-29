@@ -1,9 +1,5 @@
 # **h2, h1 json 로그 정보 자동 추출 프로그램**
 
-## **KCSE 2022**
-<img width="633" src="https://user-images.githubusercontent.com/48639426/193160740-17c7ef7f-3280-47b5-bfd6-2d1d805fa143.png">
-[논문집] (file:///C:/Users/SSG/Downloads/KCSE2022-proceedings-v5.pdf)
-
 ## **과제 선정 배경 및 필요성** 
 h2의 목표 중 하나는 HTTP1.1의 성능 개선이다 웹페이지를 전송하는데는 HTTP1.1보다 일반적으로 더 h2가 빠르긴 하지만 항상 그런 것은 아니다.<br/>
 성능에 영향을 주는 조건을 이해하는 것은 웹사이트를 , 최적화 하고 사용자 경험을 파악하는데 중요한 부분이다 . <br/><br/>
@@ -88,4 +84,8 @@ https://drive.google.com/file/d/14MXKrivRkoumDcW90uZEFH2IxB6Ol4Jp/view?usp=shari
 <br/>
 <img width="633" alt="스크린샷 2021-06-29 오후 1 34 32" src="https://user-images.githubusercontent.com/48639426/123737899-c4bd1f00-d8de-11eb-9486-4bf8f1ae4322.png">
 
+**KCSE 2022**
+# 추가 연구 진행: 동영상 스트리밍 서비스에 대
+<img width="400" src="https://user-images.githubusercontent.com/48639426/193160740-17c7ef7f-3280-47b5-bfd6-2d1d805fa143.png">
+[논문집] (file:///C:/Users/SSG/Downloads/KCSE2022-proceedings-v5.pdf)
 
