@@ -1,7 +1,7 @@
 # **h2, h1 json 로그 정보 자동 추출 프로그램**
 
 ## **KCSE 2022**
-![image](https://user-images.githubusercontent.com/48639426/193160740-17c7ef7f-3280-47b5-bfd6-2d1d805fa143.png){: width="100" height="100"}
+<img width="633" src="https://user-images.githubusercontent.com/48639426/193160740-17c7ef7f-3280-47b5-bfd6-2d1d805fa143.png">
 [논문집] (file:///C:/Users/SSG/Downloads/KCSE2022-proceedings-v5.pdf)
 
 ## **과제 선정 배경 및 필요성** 
