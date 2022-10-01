@@ -87,5 +87,5 @@ https://drive.google.com/file/d/14MXKrivRkoumDcW90uZEFH2IxB6Ol4Jp/view?usp=shari
 # KCSE 2022 학회 참석
 ## 연구 진행: 동영상 스트리밍 서비스에 대한 h1, h2 성능 분석
 <img width="400" src="https://user-images.githubusercontent.com/48639426/193160740-17c7ef7f-3280-47b5-bfd6-2d1d805fa143.png">
-논문집 다운로드 링크: (http://sigsoft.or.kr/wp-content/plugins/uploadingdownloading-non-latin-filename/download.php?id=2907)
+KCSE 2022 홈페이지를 통해 논문집 다운로드 가능합니다 : (http://sigsoft.or.kr/KCSE2022/)
 
