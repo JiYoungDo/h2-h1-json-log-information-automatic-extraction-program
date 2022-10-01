@@ -65,7 +65,7 @@ https://docs.google.com/spreadsheets/d/1ifBqptXL09vX0zMQe1AGBAEvsHZwrHhqJvATiESn
 성능 평가의 면에서 이미지 개수 이미지 사이즈 파일 사이즈에 따른 send-recv 시간 차이 성능이 h2가 h1에 비해 우수하였습니다.<br/>
 
 h2 에 대해서 오픈 소스 프로그램에서 json 파일을 읽고 원하는 데이터를 그래프로 그려주어 사용자들에게 쉽게 정보를 제공해줍니다 <br/>
-추가적으로 h1 json 파일을 읽어 원하는 정보를 추출하는 알고리즘 및 서비스를 추가할 예정입니다 ,<br/>
+h1 json 파일을 읽어 원하는 정보를 추출하여 비교 합니다. <br/>
 
 <br/>
 <br/>
@@ -86,9 +86,9 @@ https://drive.google.com/file/d/14MXKrivRkoumDcW90uZEFH2IxB6Ol4Jp/view?usp=shari
 
 
 <br/>
-
-# KCSE 2022
-## 추가 연구 진행: 동영상 스트리밍 서비스에 대한 h1, h2 성능 분석
+2022/01
+# KCSE 2022 학회 참석
+## 연구 진행: 동영상 스트리밍 서비스에 대한 h1, h2 성능 분석
 <img width="400" src="https://user-images.githubusercontent.com/48639426/193160740-17c7ef7f-3280-47b5-bfd6-2d1d805fa143.png">
-
+[논문집 다운로드 링크](http://sigsoft.or.kr/wp-content/plugins/uploadingdownloading-non-latin-filename/download.php?id=2907)
 
